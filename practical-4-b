@@ -1,0 +1,73 @@
+# Practical No. 4(B)
+
+## Aim
+To implement side effects in a React functional component using the `useEffect` hook.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import EffectDemo from "./components/EffectDemo";
+
+function App() {
+  return <EffectDemo />;
+}
+
+export default App;
+```
+
+### `src/components/EffectDemo.jsx`
+
+```jsx
+import React, { useEffect, useState } from "react";
+
+function EffectDemo() {
+  const [name, setName] = useState("");
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    console.log("Name changed:", name);
+  }, [name]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds((value) => value + 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div>
+      <h2>useEffect Demo</h2>
+
+      <input
+        placeholder="Enter name"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      />
+
+      <p>Timer: {seconds} seconds</p>
+    </div>
+  );
+}
+
+export default EffectDemo;
+```
+
+## Output
+
+```text
+useEffect Demo
+
+[Enter name]
+
+Timer: 0 seconds
+```
+
+The timer increases every second, and the entered name is logged in the browser console whenever it changes.
+
+## Result
+Successfully implemented side effects using `useEffect` to track name changes and run a timer with proper cleanup.
