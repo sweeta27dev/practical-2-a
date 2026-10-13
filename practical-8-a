@@ -1,0 +1,57 @@
+# Practical No. 8(A)
+
+## Aim
+To style a React component using CSS Modules for component-specific styling.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import StyledCard from "./components/StyledCard";
+
+function App() {
+  return <StyledCard />;
+}
+
+export default App;
+```
+
+### `src/components/StyledCard.jsx`
+
+```jsx
+import React from "react";
+import styles from "./StyledCard.module.css";
+
+function StyledCard() {
+  return (
+    <div className={styles.card}>
+      <h2>React CSS Module</h2>
+      <p>This style is scoped to the component.</p>
+    </div>
+  );
+}
+
+export default StyledCard;
+```
+
+### `src/components/StyledCard.module.css`
+
+```css
+.card {
+  width: 400px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  text-align: center;
+}
+```
+
+## Output
+
+A centered card displaying **React CSS Module** and the text *This style is scoped to the component.*, styled with a border, rounded corners, and padding.
+
+## Result
+Successfully styled a React component using CSS Modules with component-specific styling.
