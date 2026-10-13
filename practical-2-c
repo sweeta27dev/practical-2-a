@@ -1,0 +1,96 @@
+# Practical No. 2(C): Using Props and `useState` in React
+
+## Aim
+To pass data through props and manage changing data using the `useState` hook.
+
+## Source Code
+
+### 1. `src/App.js`
+
+```jsx
+import React from "react";
+import Student from "./components/Student";
+import Counter from "./components/Counter";
+
+function App() {
+  return (
+    <div>
+      <Student name="Sanika Dhanawade" course="M.Sc IT" />
+      <Counter />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### 2. `src/components/Student.jsx`
+
+```jsx
+import React from "react";
+
+function Student({ name, course }) {
+  return (
+    <div>
+      <h2>Student</h2>
+      <p>Name: {name}</p>
+      <p>Course: {course}</p>
+    </div>
+  );
+}
+
+export default Student;
+```
+
+### 3. `src/components/Counter.jsx`
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+## Output
+
+**Initial display:**
+
+```text
+Student
+
+Name: Sanika Dhanawade
+Course: M.Sc IT
+
+Count: 0
+[Increase]
+```
+
+**After clicking the Increase button once:**
+
+```text
+Count: 1
+[Increase]
+```
+
+The count increases by 1 each time the button is clicked.
+
+## Result
+Successfully passed data from the parent component to the `Student` component using props and managed changing data in the `Counter` component using the `useState` hook.
+
+## Concepts Used
+- **Props:** Pass data from a parent component to a child component.
+- **`useState`:** Stores and updates component state.
+- **Event Handling:** The `onClick` event handles button clicks.
+- **Functional Components:** Create reusable UI components in React.
