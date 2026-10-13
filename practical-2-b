@@ -1,0 +1,52 @@
+# Practical No. 2(B): Using JSX Syntax in React
+
+## Aim
+To use JSX syntax to create a React user interface.
+
+## Source Code
+
+### 1. `src/App.js`
+
+```jsx
+import React from "react";
+import JSXDemo from "./components/JSXDemo";
+
+function App() {
+  return <JSXDemo />;
+}
+
+export default App;
+```
+
+### 2. `src/components/JSXDemo.jsx`
+
+```jsx
+import React from "react";
+
+function JSXDemo() {
+  const name = "Sanika Dhanawade";
+  const course = "React JS";
+
+  return (
+    <div>
+      <h2>Student Details</h2>
+      <p>Name: {name}</p>
+      <p>Course: {course}</p>
+    </div>
+  );
+}
+
+export default JSXDemo;
+```
+
+## Output
+
+```text
+Student Details
+
+Name: Sanika Dhanawade
+Course: React JS
+```
+
+## Result
+Successfully created a React user interface using JSX syntax and displayed student details using JavaScript variables inside JSX expressions.
