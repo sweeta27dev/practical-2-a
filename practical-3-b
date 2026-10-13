@@ -1,0 +1,75 @@
+# Practical No. 3(B)
+
+## Aim
+To demonstrate controlled and uncontrolled form components in React using `useState` and `useRef`.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import FormComparison from "./components/FormComparison";
+
+function App() {
+  return <FormComparison />;
+}
+
+export default App;
+```
+
+### `src/components/FormComparison.jsx`
+
+```jsx
+import React, { useRef, useState } from "react";
+
+function FormComparison() {
+  const [controlledName, setControlledName] = useState("");
+  const uncontrolledRef = useRef(null);
+
+  const showValues = () => {
+    alert(
+      "Controlled: " + controlledName +
+      "\nUncontrolled: " + uncontrolledRef.current.value
+    );
+  };
+
+  return (
+    <div>
+      <h2>Controlled Input</h2>
+      <input
+        type="text"
+        placeholder="Enter controlled name"
+        value={controlledName}
+        onChange={(event) =>
+          setControlledName(event.target.value)
+        }
+      />
+
+      <h2>Uncontrolled Input</h2>
+      <input
+        type="text"
+        placeholder="Enter uncontrolled name"
+        ref={uncontrolledRef}
+      />
+
+      <br /><br />
+
+      <button onClick={showValues}>
+        Show Values
+      </button>
+    </div>
+  );
+}
+
+export default FormComparison;
+```
+
+## Output
+
+- Controlled Input: Enter controlled name
+- Uncontrolled Input: Enter uncontrolled name
+- Click **Show Values** to display both entered values in an alert box.
+
+## Result
+Successfully demonstrated controlled and uncontrolled form components in React using `useState` and `useRef`.
