@@ -1,0 +1,38 @@
+Practical No. 8(B) 
+ 
+Aim:-To use Bootstrap classes to create a responsive styled React interface. 
+Code:- 
+ 
+src/App.js 
+import React from "react"; 
+import "bootstrap/dist/css/bootstrap.min.css"; 
+import BootstrapDemo from "./components/BootstrapDemo"; 
+ 
+function App() { 
+  return <BootstrapDemo />; 
+} 
+ 
+export default App; 
+ 
+src/components/BootstrapDemo.jsx 
+import React from "react"; 
+ 
+function BootstrapDemo() { 
+  return ( 
+    <div className="container mt-5"> 
+      <div className="card p-4"> 
+        <h2 className="text-center">Bootstrap Demo</h2> 
+        <p className="text-center"> 
+          React component styled using Bootstrap. 
+        </p> 
+ 
+        <button className="btn btn-primary"> 
+          Bootstrap Button 
+        </button> 
+      </div> 
+    </div> 
+  ); 
+} 
+export default BootstrapDemo; 
+ 
+Output: 
