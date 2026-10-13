@@ -1,0 +1,84 @@
+# Practical No. 4(A)
+
+## Aim
+To understand and demonstrate React component lifecycle methods using a class component.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import LifecycleClass from "./components/LifecycleClass";
+
+function App() {
+  return <LifecycleClass />;
+}
+
+export default App;
+```
+
+### `src/components/LifecycleClass.jsx`
+
+```jsx
+import React, { Component } from "react";
+
+class LifecycleClass extends Component {
+  state = { count: 0 };
+
+  componentDidMount() {
+    console.log("componentDidMount: Component mounted");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate: Component updated");
+  }
+
+  componentWillUnmount() {
+    console.log("componentWillUnmount: Component removed");
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Count: {this.state.count}</h2>
+        <button
+          onClick={() =>
+            this.setState({ count: this.state.count + 1 })
+          }
+        >
+          Update Count
+        </button>
+      </div>
+    );
+  }
+}
+
+export default LifecycleClass;
+```
+
+## Output
+
+Initially:
+
+```text
+Count: 0
+[Update Count]
+```
+
+After clicking **Update Count**:
+
+```text
+Count: 1
+[Update Count]
+```
+
+Console output:
+
+```text
+componentDidMount: Component mounted
+componentDidUpdate: Component updated
+```
+
+## Result
+Successfully demonstrated the component lifecycle methods `componentDidMount()`, `componentDidUpdate()`, and `componentWillUnmount()` using a React class component.
