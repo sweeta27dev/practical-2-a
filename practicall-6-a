@@ -1,0 +1,84 @@
+# Practical No. 6(A)
+
+## Aim
+To implement navigation between multiple React pages using React Router.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import {
+  BrowserRouter,
+  Link,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+### `src/pages/Home.jsx`
+
+```jsx
+import React from "react";
+
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+export default Home;
+```
+
+### `src/pages/About.jsx`
+
+```jsx
+import React from "react";
+
+function About() {
+  return <h2>About Page</h2>;
+}
+
+export default About;
+```
+
+## Output
+
+**Home Page**
+
+```text
+Home | About
+
+Home Page
+```
+
+**After clicking About**
+
+```text
+Home | About
+
+About Page
+```
+
+## Result
+Successfully implemented navigation between Home and About pages using React Router.
