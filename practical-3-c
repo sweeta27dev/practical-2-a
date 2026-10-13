@@ -1,0 +1,92 @@
+# Practical No. 3(C)
+
+## Aim
+To validate required form fields and submit a React registration form with proper error and success messages.
+
+## Code
+
+### `src/App.js`
+
+```jsx
+import React from "react";
+import RegistrationForm from "./components/RegistrationForm";
+
+function App() {
+  return <RegistrationForm />;
+}
+
+export default App;
+```
+
+### `src/components/RegistrationForm.jsx`
+
+```jsx
+import React, { useState } from "react";
+
+function RegistrationForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (name.trim() === "" || email.trim() === "") {
+      setError("Name and Email are required.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Enter a valid email address.");
+      return;
+    }
+
+    setSuccess("Form submitted successfully!");
+  };
+
+  return (
+    <div>
+      <h2>Registration Form</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+
+        <br /><br />
+
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {success && <p style={{ color: "green" }}>{success}</p>}
+    </div>
+  );
+}
+
+export default RegistrationForm;
+```
+
+## Output
+
+- **Empty fields:** Name and Email are required.
+- **Invalid email:** Enter a valid email address.
+- **Valid details:** Form submitted successfully!
+
+## Result
+Successfully implemented a React registration form with required field validation, email validation, and submission feedback.
